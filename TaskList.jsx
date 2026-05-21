@@ -12,26 +12,23 @@ import { editTasklist,addTasklist,updateTasklist } from '../slice/UserSlice';
 const TaskList = () => {
 
   const [clicked,setClicked]=useState(false);
-  const User = useSelector((state)=>state.tasklist.tasklist);  //to get the data by using useSelector [it give the correct specific value]
+  const User = useSelector((state)=>state.tasklist.tasklist);  
 
-  const dispatch=useDispatch();  //  to get that data to print by using dispatch
-  // console.log(User);
-  const navigate=useNavigate();  //to navigate the page
-  const [button,setButton] =useState('');  //initial state of the button is empty/we could give something in it
+  const dispatch=useDispatch();  
+  const navigate=useNavigate(); 
+  const [button,setButton] =useState('');  
 
-  const handleEdit=(User)=>{      // these func used to edit the data{transfer the data}
-    dispatch(editTasklist(User));  // go to edit process
-    navigate('/NewTask');  // navigate to newTask to update
+  const handleEdit=(User)=>{     
+    dispatch(editTasklist(User));  
+    navigate('/NewTask');  
   }
-  // console.log(User.length);
-  
-  //filter => to create a new map according to the conditions
+ 
    const filteredTask = User.filter(User =>{
-    if(button === 'pending'){       // either the data status is pending then that will be resides in [filteredTask]
-      return User.status === 'pending';  // return status is pending
+    if(button === 'pending'){       
+      return User.status === 'pending';  
     }
-     if(button === 'completed'){    // or the data status is compeled then that will be resides in [filteredTask]
-      return User.status === 'completed'    // return status is pending
+     if(button === 'completed'){    
+      return User.status === 'completed'    
      }
      return true;
    })
@@ -43,7 +40,7 @@ const TaskList = () => {
        <h1>TaskList</h1>
        <hr></hr>
        <div id="TaskButton">
-               {/* if the button state is all then show all the data */}
+            
        <button style={{background : button ==='all'? 'blue':'firebrick'}} onClick={()=>setButton('all')} >All</button>  
 
        <button style={{background : button ==='pending'? 'blue':'firebrick'}}onClick={()=>setButton('pending')}>pending</button>
@@ -52,7 +49,7 @@ const TaskList = () => {
     </div>
         <div id="table">  
         <table > 
-           {/* when the button state is 'all' these content will show */}
+        
          { filteredTask && (<>   
             <thead>
               <tr>
@@ -66,7 +63,7 @@ const TaskList = () => {
             </tr>
             </thead> 
             </>)}
-          {/* <hr style={{width:'340%',display:'block'}}></hr> */}
+      
           <tbody>
             {filteredTask.map((User)=>{ 
              return <tr key={User.id} id="data">   
@@ -76,16 +73,15 @@ const TaskList = () => {
              <td style={{marginLeft:'20px',fontSize:'19px'}}> <strong  style={{color:'darkorange',margin:'15px'}}>Due :</strong>{User.deadline}</td>
                <td style={{color:'purple',fontSize:'19px',marginLeft:'20px'}}><strong>{User.difficulty}</strong></td>
                <td style={{fontSize:'19px',marginLeft:'20px'}}><strong>{User.status}</strong></td>
-      {/* IMPORTANT ONE : WE SHOULD CALL THE FUNCTION LIKE ()=>{ } IF NOT IT THROUGH ERROR */}
-                        {/* to edit the data via those function */}
+     
              <td><button id="edit" onClick={()=>handleEdit(User)}>✍🏻</button>
 
-                        {/* to delete the data via those function */}
+                        
              <button className='del'onClick={()=>dispatch(deleteTasklist(User.id))}>🚮</button>
              </td>
              <td>
               <button  style={{
-                // border:'none',
+              
                 padding:'5px',
                 marginLeft:'20px',
                 width:'50px'}} 
