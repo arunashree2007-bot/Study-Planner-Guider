@@ -1,0 +1,10 @@
+  #chart{
+    display:'flex';
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding : 10px;
+    /* background-color:darkslategrey; */
+    /* border: none; */
+    border-radius: 70px;
+  }

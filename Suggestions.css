@@ -1,0 +1,8 @@
+#sugdata{
+    /* display: flex; */
+    background-color:darkgray;
+    border: 1px solid black; 
+    
+    border-radius: 60px;
+    padding :10px   
+  }

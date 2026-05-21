@@ -1,0 +1,52 @@
+ #NewTask{
+    padding :15px;
+    margin : 15px;
+    margin-left: 5px;
+    width :100%;
+    gap :15px;
+    /* background-color: aquamarine; */
+    color: blue;
+ }
+ #NewTaskForm{
+    padding: 15px;
+    margin : 30px;
+ }
+ 
+ label{
+    padding : 30px;
+    margin :15px;
+    color :darkred;
+    font-size: 20px;
+ }
+ input{
+    padding : 10px;
+    width: 40%;
+    margin : 8px;
+    justify-content: center;
+ }
+ #addTask{
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: double;
+    border-bottom-color: black;
+    width: 120px;
+    padding :10px;
+    margin-left:30%;
+    background-color:blue;
+    color: whitesmoke;
+ }
+  /* select{
+          padding: 15px;
+          border-radius: 30px;
+          border-color:darkgoldenrod;
+          border-width: 5px;
+          width:300px ;
+          background-color:black;
+          color:burlywood;
+      } */
+     select {
+         width: 40%;
+         padding :10px;
+         
+       }
+     
